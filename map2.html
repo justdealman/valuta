@@ -1,0 +1,420 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+	<title>Valuta24.ru</title>
+	<meta http-equiv="content-type" content="text/html; charset=utf-8">
+	<meta name="viewport" content="width=1300">
+	<link href="./favicon.ico" rel="shortcut icon" type="image/x-icon">
+	<link href="./css/style.css" rel="stylesheet" type="text/css" title="compact">
+	<link href="./css/jqueryui.css" rel="stylesheet" type="text/css" title="compact">
+	<script type="text/javascript" src="./js/jquery.js"></script>
+	<script type="text/javascript" src="./js/jqueryui.js"></script>
+	<script type="text/javascript" src="./js/tablesorter.js"></script>
+	<script type="text/javascript" src="./js/dynamic.js"></script>
+</head>
+<body>
+	<div class="wrapper">
+		<div class="panel">
+			<a href="#"><img src="./pic/banner1.png" width="720" height="90" alt=""></a>
+		</div>
+		<div class="introduction">
+			<div class="header">
+				<a href="#"><img src="./img/logo.png" width="293" height="55" class="logo" alt=""></a>
+				<h5><strong>Выгодные курсы</strong> валют в банках России</h5>
+				<h3><strong>Выберите город:</strong> <span>Нижний Новгород</span></h3>
+				<ul>
+					<li class="login"><a href="#">Войти</a></li>
+					<li class="registration"><a href="#">Регистрация</a></li>
+				</ul>
+				<div>
+					<p>Курс ЦБ РФ:</p>
+					<ul>
+						<li><a href="#">USD ЦБ</a> 46,42 <span>-1.54</span></li>
+						<li><a href="#">EUR ЦБ</a> 57,42 <span>-3.54</span></li>
+					</ul>
+				</div>
+			</div>
+			<div class="form">
+				<div>
+					<h3><span>Выгодные курсы</span> валюты на карте</h3>
+					<div>
+						<div>
+							<p>Выберите <span><strong>валюту</strong>:</span></p>
+							<ul>
+								<li class="usd"><span>USD</span></li>
+								<li class="eur"><span>EUR</span></li>
+							</ul>
+						</div>
+						<div>
+							<p>Введите <span><strong>курс до</strong>:</span></p>
+							<input type="text" value="0">
+						</div>
+						<div>
+							<p>Выберите <span><strong>действие</strong>:</span></p>
+							<button class="buy">Купить</button>
+							<button class="sell">Продать</button>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="main">
+			<ul class="breadcrumbs">
+				<li><a href="#">Главная</a></li>
+				<li><a href="#">Новости</a></li>
+			</ul>
+			<h1>Поиск курса на карте</h1>
+			<div class="map">
+				<ul>
+					<li class="active"><a href="#">Все</a></li>
+					<li><a href="#">Сайты банков</a></li>
+					<li><a href="#">Представители</a></li>
+					<li><a href="#">Пользователи</a></li>
+					<li><a href="#">Курсы валют рядом</a></li>
+				</ul>
+				<div>
+					<script src="http://api-maps.yandex.ru/2.1/?lang=ru_RU" type="text/javascript"></script>
+					<script type="text/javascript">
+						ymaps.ready(init);
+						function init(){ 
+						var map = new ymaps.Map("map", {
+							center: [55.73426699, 37.60689100],
+							zoom: 13
+						}); 
+						var bank1 = new ymaps.Placemark([55.73388203, 37.60231239], {}, {
+							iconLayout: 'default#image',
+							iconImageHref: './img/map_hint1.png',
+							iconImageSize: [48, 55],
+							iconImageOffset: [-20, -47],
+							hideIconOnBalloonOpen: false
+						});	
+						var bank2 = new ymaps.Placemark([55.75399400, 37.62209300], {}, {
+							iconLayout: 'default#image',
+							iconImageHref: './img/map_hint2.png',
+							iconImageSize: [48, 55],
+							iconImageOffset: [-20, -47],
+							hideIconOnBalloonOpen: false
+						});	
+						var bank3 = new ymaps.Placemark([55.73223541, 37.52626640], {}, {
+							iconLayout: 'default#image',
+							iconImageHref: './img/map_hint3.png',
+							iconImageSize: [48, 55],
+							iconImageOffset: [-20, -47],
+							hideIconOnBalloonOpen: false
+						});	
+						var bank4 = new ymaps.Placemark([55.72593637, 37.55693754], {}, {
+							iconLayout: 'default#image',
+							iconImageHref: './img/map_hint4.png',
+							iconImageSize: [48, 55],
+							iconImageOffset: [-20, -47],
+							hideIconOnBalloonOpen: false
+						});	
+						var bank5 = new ymaps.Placemark([55.71789466, 37.60620436], {}, {
+							iconLayout: 'default#image',
+							iconImageHref: './img/map_hint5.png',
+							iconImageSize: [48, 55],
+							iconImageOffset: [-20, -47],
+							hideIconOnBalloonOpen: false
+						});
+						map.geoObjects.add(bank1).add(bank2).add(bank3).add(bank4).add(bank5);
+						map.controls.remove('fullscreenControl').remove('geolocationControl').remove('searchControl').remove('trafficControl').remove('typeSelector').remove('zoomControl');
+					}
+					</script>
+					<div id="map"></div>
+					<div class="baloon" style="left:50%;top:100px;margin-left:-350px">
+						<span class="prev"></span>
+						<span class="next"></span>
+						<h2><span class="icon type1"></span> Уралсиб</h2>
+						<table>
+							<thead>
+								<tr>
+									<th>Покупка</th>
+									<th>Продажа</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr>
+									<td class="usd">43,93 USD</td>
+									<td class="usd">43,93 USD</td>
+								</tr>
+								<tr>
+									<td class="eur">43,93 EUR</td>
+									<td class="eur">43,93 EUR</td>
+								</tr>
+							</tbody>
+						</table>
+						<h6>Источник информации: <a href="#">www.namesite.ru</a></h6>
+						<p><span>Адрес:</span> 107082, г. Москва, ул. Бакунинская, д. 50, стр. 1</p>
+						<p><span>Телефон:</span> (812) 435-23-43</p>
+						<div>
+							<p><a href="#">www.uralsib.ru</a></p>
+							<p>Иванов Иван</p>
+							<p><a href="#" class="profile">mickname</a></p>
+							<p class="vote"><span>Курс верный?</span> <a href="#">Да</a> <em>|</em> <a href="#">Нет</a></p>
+							<p class="report"><a href="#">Сообщить об ошибке</a></p>
+						</div>
+					</div>
+					<div class="list">
+						<table>
+							<thead>
+								<tr>
+									<th class="info"></th>
+									<th class="title">Банк</th>
+									<th>USD покупка</th>
+								</tr>
+								<tr>
+									<td colspan="3">
+										<p><input type="text" placeholder="Поиск по названию банка"> <button></button></p>
+									</td>
+								</tr>
+							</thead>
+							<tbody>
+								<tr>
+									<td><span class="icon type1" data-bubble="2"></span></td>
+									<td><p>Агропромкредит</p></td>
+									<td><span class="up">45,50</span></td>
+								</tr>
+								<tr>
+									<td><span class="icon type1" data-bubble="2"></span></td>
+									<td><p>Рост</p></td>
+									<td><span class="up">45,50</span></td>
+								</tr>
+								<tr>
+									<td><span class="icon type1" data-bubble="2"></span></td>
+									<td><p>Московский областной банк</p></td>
+									<td><span class="up">45,50</span></td>
+								</tr>
+								<tr>
+									<td><span class="icon type2" data-bubble="1"></span></td>
+									<td><p>Агропромкредит</p></td>
+									<td><span class="up">45,50</span></td>
+								</tr>
+								<tr>
+									<td><span class="icon type3" data-bubble="1"></span></td>
+									<td><p>Рост</p></td>
+									<td><span class="up">45,50</span></td>
+								</tr>
+								<tr>
+									<td><span class="icon type3" data-bubble="1"></span></td>
+									<td><p>Московский областной банк</p></td>
+									<td><span class="up">45,50</span></td>
+								</tr>
+								<tr>
+									<td><span class="icon type3" data-bubble="1"></span></td>
+									<td><p>Агропромкредит</p></td>
+									<td><span class="up">45,50</span></td>
+								</tr>
+								<tr>
+									<td><span class="icon type3" data-bubble="1"></span></td>
+									<td><p>Рост</p></td>
+									<td><span class="up">45,50</span></td>
+								</tr>
+								<tr>
+									<td><span class="icon type4" data-bubble="1"></span></td>
+									<td><p>Агропромкредит</p></td>
+									<td><span class="up">45,50</span></td>
+								</tr>
+								<tr>
+									<td><span class="icon type4" data-bubble="1"></span></td>
+									<td><p>Рост</p></td>
+									<td><span class="up">45,50</span></td>
+								</tr>
+								<tr>
+									<td><span class="icon type3" data-bubble="1"></span></td>
+									<td><p>Рост</p></td>
+									<td><span class="up">45,50</span></td>
+								</tr>
+								<tr>
+									<td><span class="icon type4" data-bubble="1"></span></td>
+									<td><p>Агропромкредит</p></td>
+									<td><span class="up">45,50</span></td>
+								</tr>
+								<tr>
+									<td><span class="icon type4" data-bubble="1"></span></td>
+									<td><p>Рост</p></td>
+									<td><span class="up">45,50</span></td>
+								</tr>
+								<tr>
+									<td><span class="icon type1" data-bubble="1"></span></td>
+									<td><p>Агропромкредит</p></td>
+									<td><span class="up">45,50</span></td>
+								</tr>
+								<tr>
+									<td><span class="icon type1" data-bubble="1"></span></td>
+									<td><p>Рост</p></td>
+									<td><span class="up">45,50</span></td>
+								</tr>
+								<tr>
+									<td><span class="icon type1" data-bubble="1"></span></td>
+									<td><p>Московский областной банк</p></td>
+									<td><span class="up">45,50</span></td>
+								</tr>
+								<tr>
+									<td><span class="icon type2" data-bubble="1"></span></td>
+									<td><p>Агропромкредит</p></td>
+									<td><span class="up">45,50</span></td>
+								</tr>
+								<tr>
+									<td><span class="icon type3" data-bubble="1"></span></td>
+									<td><p>Рост</p></td>
+									<td><span class="up">45,50</span></td>
+								</tr>
+								<tr>
+									<td><span class="icon type3" data-bubble="1"></span></td>
+									<td><p>Московский областной банк</p></td>
+									<td><span class="up">45,50</span></td>
+								</tr>
+								<tr>
+									<td><span class="icon type3" data-bubble="1"></span></td>
+									<td><p>Агропромкредит</p></td>
+									<td><span class="up">45,50</span></td>
+								</tr>
+								<tr>
+									<td><span class="icon type3" data-bubble="1"></span></td>
+									<td><p>Рост</p></td>
+									<td><span class="up">45,50</span></td>
+								</tr>
+								<tr>
+									<td><span class="icon type4" data-bubble="1"></span></td>
+									<td><p>Агропромкредит</p></td>
+									<td><span class="up">45,50</span></td>
+								</tr>
+								<tr>
+									<td><span class="icon type4" data-bubble="1"></span></td>
+									<td><p>Рост</p></td>
+									<td><span class="up">45,50</span></td>
+								</tr>
+								<tr>
+									<td><span class="icon type3" data-bubble="1"></span></td>
+									<td><p>Рост</p></td>
+									<td><span class="up">45,50</span></td>
+								</tr>
+								<tr>
+									<td><span class="icon type4" data-bubble="1"></span></td>
+									<td><p>Агропромкредит</p></td>
+									<td><span class="up">45,50</span></td>
+								</tr>
+								<tr>
+									<td><span class="icon type4" data-bubble="1"></span></td>
+									<td><p>Рост</p></td>
+									<td><span class="up">45,50</span></td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+				</div>
+			</div>
+			<div class="banner">
+				<div>
+					<a href="#"><img src="./pic/banner4.png" width="1275" height="148" alt=""></a>
+				</div>
+			</div>
+		</div>
+		<div class="clear"></div>
+	</div>
+	<div class="footer">
+		<div>
+			<a href="#"><img src="./img/logo_footer.png" width="187" height="35" class="logo" alt=""></a>
+			<h5>Выгодные курсы валют в банках России</h5>
+			<h6>2014 namesite.ru, При полной или частичной перепечатке редакционных и авторских материалов гиперссылка на «valuta.ru» обязательна.</h6>
+			<ul class="nav">
+				<li><a href="#">О проекте</a></li>
+				<li><a href="#">Пользовательское соглашение</a></li>
+				<li><a href="#">Реклама</a></li>
+				<li><a href="#">Контакты</a></li>
+				<li><a href="#">Курсы</a></li>
+			</ul>
+			<div class="share">
+				<p>Поделиться:</p>
+				<ul>
+					<li><a href="#" class="vkontakte"></a></li>
+					<li><a href="#" class="facebook"></a></li>
+					<li><a href="#" class="twitter"></a></li>
+				</ul>
+				<div>
+					<img src="./img/linksbar_social.png" width="287" height="22" alt="">
+				</div>
+			</div>
+			<ul class="links">
+				<li><a href="#" class="appstore"></a></li>
+				<li><a href="#" class="google"></a></li>
+				<li><a href="#" class="yandex"></a></li>
+				<li><a href="#" class="mail"></a></li>
+			</ul>
+		</div>
+	</div>
+	<div class="bubble right type1">
+		<h5>Источник информации о курсе валюты</h5>
+		<p>Официальный сайт банка.</p>
+		<h5>Соответствие курсов валют с сайта банка реальной ситуации в отделениях</h5>
+		<p>на сайте нет информации для валюто-обменных операций наличными, указаны курсы только для безналичных операций</p>
+		<h5>Курс в конкретном отделении</h5>
+		<p>Можно уточнить в коллцентре или в отделении банка.</p>
+		<p>В каком отделении банка самый выгодный курс</p>
+		<p>Операторы коллцентра не владеют такой информацией.</p>
+		<h5>Льготный курс обмена</h5>
+		<p>нет</p>
+		<h5>Комиссия при валютно-обменных операциях</h5>
+		<p>нет</p>
+		<h5>Как часто меняется курс валюты в течение дня</h5>
+		<p>В течение дня курсы валют могут изменяться.</p>
+		<p>Телефон колл-центра банка: 8 800 100-03-63</p>
+		<p><a href="#">Список отделений банка с телефонами</a></p>
+		<p><a href="#">Отделения банка на карте города</a></p>
+	</div>
+	<div class="bubble right type2">
+		<h3>Верный ли курс?</h3>
+		<p>05-12-2014 (// Ключевые события)</p>
+		<p>04-33 - Курс обновлён va...@bspb.ru</p>
+		<p>01-21 - Курс добавлен 192.ххх.хх.54</p>
+		<h5>Что говорят пользователи:</h5>
+		<p>12-51 Да - 182.234.44.66</p>
+		<p>12-49 Нет - 192.222.47.54</p>
+		<p>12-49 Нет - 192.ххх.хх.54</p>
+		<p>11-33 Да - 911-7...567</p>
+		<p>11-25 Да - 911-7...567</p>
+		<p>10-33 Да - 911-7...567</p>
+		<p>10-25 Да - 911-7...567</p>
+	</div>
+	<div class="calculator">
+		<h3>
+			Калькулятор валют:
+			<span data-direction="sell">
+				<em data-currency="rur" class="active">Рубль (RUB)</em>
+				<em data-currency="usd">Доллар (USD)</em>
+				<em data-currency="eur">Евро (EUR)</em>
+			</span>
+			- 
+			<span data-direction="buy">
+				<em data-currency="rur">Рубль (RUB)</em>
+				<em data-currency="usd" class="active">Доллар (USD)</em>
+				<em data-currency="eur">Евро (EUR)</em>
+			</span>
+		</h3>
+		<div>
+			<div data-direction="sell">
+				<p>
+					<input type="text">
+					<span>
+						<em data-currency="rur" class="active">РУБ</em>
+						<em data-currency="usd">USD</em>
+						<em data-currency="eur">EUR</em>
+					</span>
+				</p>
+				<p><input type="text" value="22.04.2014" class="data"></p>
+			</div>
+			<div data-direction="buy">
+				<p>
+					<input type="text">
+					<span>
+						<em data-currency="rur">РУБ</em>
+						<em data-currency="usd" class="active">USD</em>
+						<em data-currency="eur">EUR</em>
+					</span>
+				</p>
+				<p><input type="text" value="22.04.2014" class="data"></p>
+			</div>
+		</div>
+	</div>
+</body>
+</html>
