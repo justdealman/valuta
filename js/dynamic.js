@@ -1,7 +1,18 @@
 ﻿$(document).ready(function() {
-	$('.introduction .form > div > div > div ul li span').bind('click', function() {
-		$(this).parent().addClass('active').siblings().removeClass('active');
+	$('.introduction .form > div > div > div ul li span, .fixednav > div > div ul li span').bind('click', function() {
+		$('.introduction .form > div > div > div ul li.'+$(this).parent().attr('class')+', .fixednav > div > div ul li.'+$(this).parent().attr('class')).addClass('active').siblings().removeClass('active');
 		return false;
+	});
+	$('.introduction .form > div > div > div input, .fixednav > div > div input').keyup(function() {
+		$('.introduction .form > div > div > div input, .fixednav > div > div input').val($(this).val());
+	});
+	$(window).bind('scroll', function() {
+		if ( $(document).scrollTop() > $('.introduction .form').offset().top+$('.introduction .form').outerHeight() ) {
+			$('.fixednav').stop(true,true).fadeIn(0);
+		}
+		else {
+			$('.fixednav').stop(true,true).fadeOut(0);
+		}
 	});
 	if ( $('.content .line').length > 0 ) {
 		$('.content .line .banner').each(function() {
@@ -41,20 +52,20 @@
 				'left': ($(this).width()-$(this).find('img').attr('width'))/2+'px'
 			});
 		});
-		$('.exchangerate table').tablesorter(); 
-		$('.exchangerate tbody td:nth-child(2)').attr({
+		$('.wrapper > .exchangerate table, .main > .exchangerate table').tablesorter(); 
+		$('.exchangerate table.filter tbody td:nth-child(2)').attr({
 			'data-currency': 'usd',
 			'data-direction': 'buy'
 		});
-		$('.exchangerate tbody td:nth-child(3)').attr({
+		$('.exchangerate table.filter tbody td:nth-child(3)').attr({
 			'data-currency': 'usd',
 			'data-direction': 'sell'
 		});
-		$('.exchangerate tbody td:nth-child(4)').attr({
+		$('.exchangerate table.filter tbody td:nth-child(4)').attr({
 			'data-currency': 'eur',
 			'data-direction': 'buy'
 		});
-		$('.exchangerate tbody td:nth-child(5)').attr({
+		$('.exchangerate table.filter tbody td:nth-child(5)').attr({
 			'data-currency': 'eur',
 			'data-direction': 'sell'
 		});
@@ -87,8 +98,8 @@
 		$('html, body').animate({ scrollTop: 0 }, 500);
 		return false;
 	});
-	$('.introduction .form > div > div > div button').bind('click', function() {
-		$(this).addClass('active').siblings().removeClass('active');
+	$('.introduction .form > div > div > div button, .fixednav > div > div button').bind('click', function() {
+		$('.introduction .form > div > div > div button.'+$(this).attr('class')+', .fixednav > div > div button.'+$(this).attr('class')).addClass('active').siblings().removeClass('active');
 		return false;
 	}).filter('.buy').click();
 	$('.content .rb .calc').bind('click', function() {
@@ -128,9 +139,9 @@
 		return false;
 	});
 	$('body').bind('click', function() {
-		$('.calculator, .bubble').stop(true,true).fadeOut(500);
+		$('.calculator, .bubble, .citysel').stop(true,true).fadeOut(500);
 	});
-	$('.calculator, .bubble, .exchangerate table').click(function(e) {
+	$('.calculator, .bubble, .exchangerate table, .citysel').click(function(e) {
 		e.stopPropagation();
 	});
 	if ( $('.main').length > 0 ) {
@@ -164,6 +175,47 @@
 			$('.bubble').stop(true,true).fadeOut(500);
 		});
 	}
+	$('.citysel').append('<span class="close"></span>');
+	$('div.header > h3 span').bind('click', function() {
+		$('.citysel').css({
+			'left': $(this).offset().left+'px',
+			'top': $(this).offset().top+'px'
+		}).stop(true,true).fadeIn(500);
+		return false;
+	});
+	$('.citysel .close').bind('click', function() {
+		$('.citysel').stop(true,true).fadeOut(500);
+		return false;
+	});
+	if ( $('.rate').length > 0 ) {
+		$('.rate > div table, .rate > div > div').width(eval($('.rate').width()/2-20));
+	}
+	if ( $('.feedback').length > 0 ) {
+		$('.feedback select').selectbox();
+	}
+	if ( $('.bank').length > 0 ) {
+		$('.bank').css({
+			'min-height': $('.bank .logo').height()+10+'px'
+		});
+	}
+	if ( $('.widget').length > 0 ) {
+		$('.widget ul li').width($('.widget').width()/2-10);
+		var max = 0;
+		$('.widget ul li > div').each(function() {
+			var h = $(this).height(); 
+			max = h > max ? h : max;
+		});
+		$('.widget ul li > div').height(max);
+	}
+	$('.messages > div').append('<span class="close"></span>');
+	$('[data-message="open"]').bind('click', function() {
+		$('.messages .type'+$(this).attr('href')).stop(true,true).fadeIn(500).delay(5000).fadeOut(500);
+		return false;
+	});
+	$('.messages .close').bind('click', function() {
+		$(this).parent().stop(true,true).fadeOut(500);
+		return false;
+	});
 });
 $(window).load(function() {
 	if ( $('.exchangerate').length > 0 ) {
@@ -197,5 +249,11 @@ $(window).resize(function() {
 		$('.bubble.right').css({
 			'margin-right': -$('.header').width()/2+368+'px'
 		});
+	}
+	if ( $('.rate').length > 0 ) {
+		$('.rate > div table, .rate > div > div').width(eval($('.rate').width()/2-20));
+	}
+	if ( $('.widget').length > 0 ) {
+		$('.widget ul li').width($('.widget').width()/2-10);
 	}
 });

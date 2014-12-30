@@ -64,156 +64,88 @@
 				<li><a href="#">Главная</a></li>
 				<li><a href="#">Новости</a></li>
 			</ul>
-			<h1>Поиск курса на карте</h1>
-			<div class="map">
+			<h1>Курсы доллара ЦБ РФ</h1>
+			<div class="rate">
 				<ul>
-					<li class="active"><a href="#">Все</a></li>
-					<li><a href="#">Сайты банков</a></li>
-					<li><a href="#">Представители</a></li>
-					<li><a href="#">Пользователи</a></li>
-					<li><a href="#">Курсы валют рядом</a></li>
+					<li><a href="#">USD</a></li>
+					<li class="active"><a href="#">EUR</a></li>
 				</ul>
 				<div>
-					<script src="http://api-maps.yandex.ru/2.1/?lang=ru_RU" type="text/javascript"></script>
-					<script type="text/javascript">
-						ymaps.ready(init);
-						function init(){ 
-						var map = new ymaps.Map("map", {
-							center: [55.73426699, 37.60689100],
-							zoom: 13
-						}); 
-						var bank1 = new ymaps.Placemark([55.73388203, 37.60231239], {}, {
-							iconLayout: 'default#image',
-							iconImageHref: './img/map_hint1.png',
-							iconImageSize: [48, 55],
-							iconImageOffset: [-20, -47],
-							hideIconOnBalloonOpen: false
-						});	
-						var bank2 = new ymaps.Placemark([55.75399400, 37.62209300], {}, {
-							iconLayout: 'default#image',
-							iconImageHref: './img/map_hint2.png',
-							iconImageSize: [48, 55],
-							iconImageOffset: [-20, -47],
-							hideIconOnBalloonOpen: false
-						});	
-						var bank3 = new ymaps.Placemark([55.73223541, 37.52626640], {}, {
-							iconLayout: 'default#image',
-							iconImageHref: './img/map_hint3.png',
-							iconImageSize: [48, 55],
-							iconImageOffset: [-20, -47],
-							hideIconOnBalloonOpen: false
-						});	
-						var bank4 = new ymaps.Placemark([55.72593637, 37.55693754], {}, {
-							iconLayout: 'default#image',
-							iconImageHref: './img/map_hint4.png',
-							iconImageSize: [48, 55],
-							iconImageOffset: [-20, -47],
-							hideIconOnBalloonOpen: false
-						});	
-						var bank5 = new ymaps.Placemark([55.71789466, 37.60620436], {}, {
-							iconLayout: 'default#image',
-							iconImageHref: './img/map_hint5.png',
-							iconImageSize: [48, 55],
-							iconImageOffset: [-20, -47],
-							hideIconOnBalloonOpen: false
-						});
-						map.geoObjects.add(bank1).add(bank2).add(bank3).add(bank4).add(bank5);
-						map.controls.remove('fullscreenControl').remove('geolocationControl').remove('searchControl').remove('trafficControl').remove('typeSelector').remove('zoomControl');
-					}
-					</script>
-					<div id="map"></div>
-					<div class="baloon" style="left:50%;top:100px;margin-left:-350px">
-						<span class="prev"></span>
-						<span class="next"></span>
-						<h2><span class="icon type1"></span> Уралсиб</h2>
-						<table>
-							<thead>
-								<tr>
-									<th>Покупка</th>
-									<th>Продажа</th>
-								</tr>
-							</thead>
-							<tbody>
-								<tr>
-									<td class="usd">43,93 USD</td>
-									<td class="usd">43,93 USD</td>
-								</tr>
-								<tr>
-									<td class="eur">43,93 EUR</td>
-									<td class="eur">43,93 EUR</td>
-								</tr>
-							</tbody>
-						</table>
-						<h6>Источник информации: <a href="#">www.namesite.ru</a></h6>
-						<p><span>Адрес:</span> 107082, г. Москва, ул. Бакунинская, д. 50, стр. 1</p>
-						<p><span>Телефон:</span> (812) 435-23-43</p>
+					<table>
+						<thead>
+							<tr>
+								<th class="data">Дата</th>
+								<th class="currency">USD</th>
+								<th class="change">Изменение</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td>22.11.2014  17:28</td>
+								<td>47.5</td>
+								<td><span class="up">1.2768</span></td>
+							</tr>
+							<tr>
+								<td>22.11.2014  17:28</td>
+								<td>47.5</td>
+								<td><span class="down">-1.2768</span></td>
+							</tr>
+							<tr>
+								<td>22.11.2014  17:28</td>
+								<td>47.5</td>
+								<td><span class="up">1.2768</span></td>
+							</tr>
+							<tr>
+								<td>22.11.2014  17:28</td>
+								<td>47.5</td>
+								<td><span class="up">1.2768</span></td>
+							</tr>
+							<tr>
+								<td>22.11.2014  17:28</td>
+								<td>47.5</td>
+								<td><span class="up">1.2768</span></td>
+							</tr>
+						</tbody>
+					</table>
+					<div>
 						<div>
-							<p><a href="#">www.uralsib.ru</a></p>
-							<p>Иванов Иван</p>
-							<p><a href="#" class="profile">mickname</a></p>
-							<p class="vote"><span>Курс верный?</span> <a href="#">Да</a> <em>|</em> <a href="#">Нет</a></p>
-							<p class="report"><a href="#">Сообщить об ошибке</a></p>
+							<h5>Динамика изменения курса Доллара <span class="usd">Доллар</span></h5>
+							<div>
+								graph here
+							</div>
 						</div>
 					</div>
-					<div class="list">
-						<table>
-							<thead>
-								<tr>
-									<th class="info"></th>
-									<th class="title">Банк</th>
-									<th>USD покупка</th>
-								</tr>
-								<tr>
-									<td colspan="3">
-										<p><input type="text" placeholder="Поиск по названию банка"> <button></button></p>
-									</td>
-								</tr>
-							</thead>
-							<tbody>
-								<tr>
-									<td><span class="icon type1" data-bubble="2"></span></td>
-									<td><p>Агропромкредит</p></td>
-									<td><span class="up">45,50</span></td>
-								</tr>
-								<tr>
-									<td><span class="icon type1" data-bubble="2"></span></td>
-									<td><p>Рост</p></td>
-									<td><span class="up">45,50</span></td>
-								</tr>
-								<tr>
-									<td><span class="icon type1" data-bubble="2"></span></td>
-									<td><p>Московский областной банк</p></td>
-									<td><span class="up">45,50</span></td>
-								</tr>
-								<tr>
-									<td><span class="icon type2" data-bubble="1"></span></td>
-									<td><p>Агропромкредит</p></td>
-									<td><span class="up">45,50</span></td>
-								</tr>
-								<tr>
-									<td><span class="icon type3" data-bubble="1"></span></td>
-									<td><p>Рост</p></td>
-									<td><span class="up">45,50</span></td>
-								</tr>
-								<tr>
-									<td><span class="icon type3" data-bubble="1"></span></td>
-									<td><p>Московский областной банк</p></td>
-									<td><span class="up">45,50</span></td>
-								</tr>
-								<tr>
-									<td><span class="icon type3" data-bubble="1"></span></td>
-									<td><p>Агропромкредит</p></td>
-									<td><span class="up">45,50</span></td>
-								</tr>
-								<tr>
-									<td><span class="icon type3" data-bubble="1"></span></td>
-									<td><p>Рост</p></td>
-									<td><span class="up">45,50</span></td>
-								</tr>
-							</tbody>
-						</table>
-					</div>
 				</div>
+				<h6>Источник информации: <a href="#">Центральный банк Российской Федерации</a></h6>
+				<p>Гордостью сотрудников банка и показателями их работы являются грамоты и призы на различных конкурсах. Среди них – многократные победы в номинации «Лучший банк региона», проводимой рядом организаций.</p>
+				<p>Развитая инфраструктура позволяет банку быть ближе к своим клиентам. Порядка одиннадцати офисов насчитывается по всей стране, в дополнение к которым открыты филиалы в Москве и Каспийске.</p>
+				<p>Таким образом, в настоящее время банк находится на подъеме, активно растет и развивается. При этом долгосрочной целью является построение в стране действительно развитой инфраструктуры, реализации которой соответствует разработанная специалистами банка стратегия. Таким амбициям вполне соответствует девиз банка, который звучит как: «Завтра принадлежит тому, кто с нами!».</p>
+			</div>
+			<div class="helpful">
+				<h3>Полезно знать</h3>
+				<ul>
+					<li>
+						<div>
+							<img src="./pic/helpful.jpg" width="185" height="131" alt="">
+							<h5><a href="#">Открылся рабочий кабинет для представителей банков</a></h5>
+							<p>Гордостью сотрудников банка и показателями их работы являются грамоты и призы на различных конкурсах. Среди них –</p>
+						</div>
+					</li>
+					<li>
+						<div>
+							<img src="./pic/helpful.jpg" width="185" height="131" alt="">
+							<h5><a href="#">Открылся рабочий кабинет для представителей банков</a></h5>
+							<p>Гордостью сотрудников банка и показателями их работы являются грамоты и призы на различных конкурсах. Среди них –</p>
+						</div>
+					</li>
+					<li>
+						<div>
+							<img src="./pic/helpful.jpg" width="185" height="131" alt="">
+							<h5><a href="#">Открылся рабочий кабинет для представителей банков</a></h5>
+							<p>Гордостью сотрудников банка и показателями их работы являются грамоты и призы на различных конкурсах. Среди них –</p>
+						</div>
+					</li>
+				</ul>
 			</div>
 			<div class="banner">
 				<div>
